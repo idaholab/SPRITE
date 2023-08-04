@@ -21,111 +21,80 @@ Important notes:
  * If you are a **code developer** and plan to make changes of the code and push the changes back to the repository on GitHub, we assume you have a GitHub account and you know how to set up SSH keys on your operating system and add your SSH keys to your GitHub account.
  * We have prepared training data that can be directly used for some data-driven models in SPRITE. It is not mandatory to have the existing training data for using the data-driven models in SPRITE. But generating high-quality training data which are large in file size would take a few hours. We encourage users to download our prepared training data  to get familiar with using the data-driven models in SPRITE. The training data are stored in a separate GitHub repository called **SPRITE-Data**.
 
-Follow the instructions below. In the example commend line instructions below, We use `username` to denote your user name on your operating system. Replace `username` with your user name.
+Follow the instructions below. We use **username** to denote your user name on your operating system. Replace **username** with your user name.
 
+## Install the prerequisite software packages
 
-### Installing the prerequisites
+Download and install [Git for Windows](https://gitforwindows.org/).
 
-#### Install Git
+Download and install [Anaconda](https://www.anaconda.com/).
 
-Install Git from the git [website](https://gitforwindows.org/).
+## Obtain the SPRITE and SPRITE-Data repositories from GitHub
 
-Click on Download button.
-Install the Git using default options.
+Find and click open the *Git Bash* app from the *Search* bar.
 
-Obtain the SPRITE repository:
+<img src="figs/fig_icon_git_bash.png">
 
-Click Git Bash icon from the desktop.
-Within the Git terminal, navigate to a preferred directory, e.g., the `Downloads` folder:
+A terminal-like window will show up.
 
-	cd c:/Users/username/Downloads
+<img src="figs/fig_window_git_bash.png">
 
-
-#### Downloading the SPRITE repository from GitHub:
-<!-- 
-Choose one of the download options below:
--->	
-
-Download by git clone.
+If you are an **end user**, copy and paste the following text into the Git Bash command line and click *Enter* key to download the SPRITE repository
 
 	git clone https://github.com/yidongxiainl/SPRITE.git
-		
-<!-- 
-* Download option **1b**. Unzip the downloaded file. 
 
-		wget https://github.com/yidongxiainl/SPRITE/archive/refs/heads/main.zip
-	
-* Download option **2** (recommended for developers):
-
-		git clone git@github.com:yidongxiainl/SPRITE.git
--->	
-
-Note: We have prepared training data that can be directly used for some data-driven models in SPRITE. It is not mandatory to have the existing training data for using the data-driven models in SPRITE. But generating high-quality training data which are large in file size would take a few hours. We encourage users to download our prepared training data  to get familiar with using the data-driven models in SPRITE. The training data are stored in a separate GitHub repository called **SPRITE-Data**. To obtain the repository:
-
-<!-- 
-* Navigate to the same directory where the SPRITE repository is located, e.g., the `Downloads` folder:
-
-		cd c:/Users/username/Downloads
--->	
-<!-- 
-Choose one of the download option below:
--->
-Download by git clone.
+and copy and paste the following text into the Git Bash command line and click *Enter* key to download the SPIRITE-Data repository.
 
 	git clone https://github.com/yidongxiainl/SPRITE-Data.git
-		
-<!--
-* Download option 1b. Unzip the downloaded file. 
 
-		wget https://github.com/yidongxiainl/SPRITE-Data/archive/refs/heads/main.zip
+If you are a **code developer**, copy and paste the following text into the Git Bash command line and click *Enter* key to download the SPRITE repository
 
-* Download option 2 (recommended for developers):
+	git clone git@github.com:yidongxiainl/SPRITE.git
 
-		git clone git@github.com:yidongxiainl/SPRITE-Data.git
--->
-You can choose to close the Git Bash now.
+and copy and paste the following text into the Git Bash command line and click *Enter* key to download the SPIRITE-Data repository.
 
-#### Install Anaconda
+	git clone git@github.com:yidongxiainl/SPRITE-Data.git
 
-Install **Anaconda**. Anaconda Navigator is a desktop graphical user interface (GUI) included in Anaconda® Distribution that allows you to launch applications and manage conda packages, environments, and channels without using command line interface (CLI) commands. Navigator can search for packages on Anaconda.org or in a local Anaconda Repository. To install Anaconda, download it from [the link](https://www.anaconda.com/download/), and follow the instruction on the Anaconda [website](https://docs.anaconda.com/free/anaconda/install/windows/).
+Notes: If you are an end user, *Git Bash* is only used for downloading these repositories. You will not need *Git Bash* for the following steps.
 
+## Create and activate a custom Conda environment for SPRITE
 
-Open PowerShell (searching it from the Start). It shows as follows.
+Find and click open the *Anaconda Navigator* app from the *Search* bar.
 
-<img src="figs/powershell.png">
+<img src="figs/fig_icon_anaconda.png">
 
-		
-Follow the command line instructions below.
+A graphical window will show up. Find *Powershell Prompt* and click *Launch*.
 
+<img src="figs/fig_window_anaconda_navigator.png">
 
-### Activating the custom Conda environment for SPRITE:
-		
-Create a new environment named sprite
+A *Powershell Prompt* window will show up.
+
+<img src="figs/fig_window_powershell.png">
+
+Go to the SPRITE folder: copy and paste the following text into the *Powershell Prompt* command line and click *Enter* key.
+
+	cd ./SPRITE
+	
+To create a new environment named *sprite*, copy and paste the following text into the *Powershell Prompt* command line and click *Enter* key.
 
 	conda create -n sprite python=3.9
-		
-When it shows procceed ([y]/n), press y
 
-To activate the sprite environment, type
+To activate the *sprite* environment, copy and paste the following text into the *Powershell Prompt* command line and click *Enter* key.
 
 	conda activate sprite
-		
-You can also verify the activation of the SPRITE environment by typing
+
+To verify if the *sprite* environment is ready, copy and paste the following text into the *Powershell Prompt* command line and click *Enter* key.
 
 	conda env list
-		
+
 You should see the following command line output.
 
 	# conda environments:
 	#
-	base                     /Users/username/anaconda
-	sprite                *  /Users/username/anaconda/envs/SPRITE
+	base                     C:\Users\username\anaconda3
+    sprite                *  C:\Users\username\anaconda3\envs\sprite
 
-Navigate to the SPRITE repository folder:
-
-	cd c:/Users/username/Downloads/SPRITE
-
-To install the required packages of the sprite environment for SPRITE, type
+The *sprite* environment is empty. To install the required packages in the *sprite* environment, copy and paste the following text into the *Powershell Prompt* command line and click *Enter* key.
 
 	pip install -r requirements.txt
 
