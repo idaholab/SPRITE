@@ -33,11 +33,11 @@ Download and install [Anaconda](https://www.anaconda.com/).
 
 Find and click open the *Git Bash* app from the *Search* bar.
 
-<img src="figs/fig_icon_git_bash.png">
+<img src="figs/pic_icon_git_bash.png">
 
 A terminal-like window will show up.
 
-<img src="figs/fig_window_git_bash.png">
+<img src="figs/pic_window_git_bash.png">
 
 If you are an **end user**, copy and paste the following text into the Git Bash command line and click *Enter* key to download the SPRITE repository
 
@@ -61,15 +61,15 @@ Notes: If you are an end user, *Git Bash* is only used for downloading these rep
 
 Find and click open the *Anaconda Navigator* app from the *Search* bar.
 
-<img src="figs/fig_icon_anaconda.png">
+<img src="figs/pic_icon_anaconda.png">
 
 A graphical window will show up. Find *Powershell Prompt* and click *Launch*.
 
-<img src="figs/fig_window_anaconda_navigator.png">
+<img src="figs/pic_window_anaconda_navigator.png">
 
 A *Powershell Prompt* window will show up.
 
-<img src="figs/fig_window_powershell.png">
+<img src="figs/pic_window_powershell.png">
 
 Go to the SPRITE folder: copy and paste the following text into the *Powershell Prompt* command line and click *Enter* key.
 
