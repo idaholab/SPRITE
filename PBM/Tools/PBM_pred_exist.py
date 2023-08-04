@@ -26,7 +26,7 @@ while True:
         try:
             data_num = int(data_num)
             if 1 <= data_num <= 16:
-                print("\nData No.{data_num} is selected.\n")
+                print(f"\nData No.{data_num} is selected.\n")
                 break
             else:
                 print("\n############# Warning ############## \n\
