@@ -19,58 +19,80 @@ Detailed instructions for installing the prerequisite software packages and SPRI
 * [macOS](instruction_macOS/)
 
 # Data description
-The source experimental data was obtained from two mechanical size reduction mills: a Wiley knife mill at the bench scale and a JRS knife mill at the pilot scale. The data contains the cumulative output particle size distributions (PSDs) under different conditions of processing parameters. Find the description [here](PBM/Dataset).
 
+The original experimental data of corn stalk size reduction was obtained from two mills: a Wiley knife mill at the bench scale and a JRS knife mill at the pilot scale. The data contains the cumulative output particle size distributions (PSDs) under different conditions of processing parameters. Find the description [here](PBM/Dataset).
 
-# Use SPRTIE
+# Running SPRITE
 
-## Running SPRITE
-1. For Windows users, open PowerShell app in Anaconda Navigator. For macOS/Linux users, open the terminal. 
-2. Go to the project folder where the file - '/SPRITE/main.py' is located.
+## Windows
 
-	Windows
-		
-		cd c:/Users/username/Downloads/SPRITE
+Open *Powershell Prompt* from *Anaconda Navigator*. Go to the SPRITE foler by copying and pasting the following text into the command line and click *Enter* key.
+
+	cd c:/Users/username/Downloads/SPRITE
+
+Run SPRITE.
+
+	python main.py
+
+## Linux
+
+Open a Terminal session. Go to the SPRITE folder.
+
+	cd /home/username/Downloads/SPRITE
+
+Run SPRITE.
+
+	./RUN
+
+## macOS
+
+Open a Terminal session. Go to the SPRITE folder.
+
+	cd /Users/username/Downloads/SPRITE
+
+Run SPRITE.
+
+	./RUN
 			
-	macOS
 
-		cd /Users/username/Downloads/SPRITE
-			
-	Run SPRITE
-		
-		./RUN
-			
-	Three models can be used to predict the milled biomass particle size distribution (PSD) with the given feed biomass PSD under certain milling condition.
+Three models can be used to predict the milled biomass PSD with the given feed biomass PSD under certain milling condition.
 
-	- PBM: A probabilistic based model, by data fitting and regression to find the input output relationship. It has mode 1 to show the data fitting performance, and has mode 2 for prediction. In prediction mode, you can use the model to predict exist data from the experiment, or make a new data for it to predict.
-	- DNO+: A data driven based model, trained by 300 datasets, 100 test datasets. You can try the training process, or use the pre-trained model to make prediction. In prediction mode, you can use the model to predict exist data from the experiment, or make a new data for it to predict.
-	- PIDNO+: A phyisics-informed and data driven based model, trained by 25 datasets, 5 datasets for testing. You can try the training process, or use the pre-trained model to make prediction.
+* PBM: A probabilistic based model, by data fitting and regression to find the input output relationship. It has mode 1 to show the data fitting performance, and has mode 2 for prediction. In prediction mode, you can use the model to predict exist data from the experiment, or make a new data for it to predict.
+* DNO+: A data driven based model, trained by 300 datasets, 100 test datasets. You can try the training process, or use the pre-trained model to make prediction. In prediction mode, you can use the model to predict exist data from the experiment, or make a new data for it to predict. 
+* PIDNO+: A phyisics-informed and data driven based model, trained by 25 datasets, 5 datasets for testing. You can try the training process, or use the pre-trained model to make prediction.
 
-## Test model on new data
+# Test model on new data
+
 ### Create new data
-1. First prepare the feed biomass particle size distribution (PSD) as the input data and the milled product biomass PSD as the output data. The data should include the sieve sizes and the cumulative PSD, in the form of .csv file below:
 
-	* \SPRITE\PBM\Dataset\extra_input.csv
-	* \SPRITE\PBM\Dataset\extra_output.csv
+First prepare the feed biomass particle PSD as the input data and the milled product biomass PSD as the output data. The data should include the sieve sizes and the cumulative PSD, in the form of .csv file below.
 
-	You can directly put your data into these two files, under the column name: 'FSieves' & 'Feedmass' in the input, 'ExpSieves' & 'Expmass' in the output.
+Example user-provided input file:
 
-2. Run SPRITE, and select Method 1 - PBM
-3. When it shows: 'Enter the No. data you want choose (choose between 1~10) or enter 0 for your own data.', press 0.
-4. Then follow the instruction in the code.
+	\SPRITE\PBM\Dataset\extra_input.csv
+
+Example reference output file:
+
+	\SPRITE\PBM\Dataset\extra_output.csv
+
+
+You can directly put your data into these two *csv* files, under the column name: *'FSieves'* and *'Feedmass'* in the input data file, and *'ExpSieves'* and *'Expmass'* in the output data file.
+
+An example procedure is below.
+
+* Run SPRITE, and select Method 1 (PBM)
+* When it shows: 'Enter the No. data you want choose (choose between 1~10) or enter 0 for your own data.', press 0.
+* Then follow the instruction in the command line prompt.
 	* Enter the milling frequency in Hz: 
 	* Enter the moisture content in %: 
-5. Select the optimization method.
-6. Finish fitting process and get the results.
+* Select the optimization method.
+* Finish fitting process and get the results.
 
 
-# Troubleshoot
-1. "PermissionError: [Errno 1] Operation not permitted"
-	- Conditions: On Mac OS, try to use the model load with DNO+ or PIDNO+ methods under terminal or other python interface.
-	- Solver: Open Mac system settings -- Privacy & Security -- Full Disk Access. 
-		- If your app is in the list: give the disk access to it directly.
-		- If your app is not in the list: click on '+' button below, find your app, then give the disk access.
+# Troubleshooting
 
-2. "No module named 'XXX'"
-	- Conditions: Using console, and try to use different models under the same console.
-	- Solver: Restart console. 
+* "PermissionError: [Errno 1] Operation not permitted"
+	* Conditions: On Mac OS, try to use the model load with DNO+ or PIDNO+ methods under terminal or other python interface.
+	* Solver: Open Mac system settings -- Privacy & Security -- Full Disk Access. 
+		* If your app is in the list: give the disk access to it directly.
+		* If your app is not in the list: click on '+' button below, find your app, then give the disk access.
