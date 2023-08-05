@@ -10,6 +10,8 @@
 
 **SPRITE (Smart Preprocessing & Robust Integration Emulator)** is an open-source suite of analytical and data-driven models for predicting the performance of renewable carbon feedstock preprocessing units and system integration. The models being developed in this suite include **Population Balance Model (PBM)**, **Enhanced Deep Neural Operator (DNO+)**, and **Physics-Informed DNO+ (PIDNO+)**.
 
+<img src="figs/fig_SPRITE_banner.png">
+
 # Installing SPRITE
 
 Detailed instructions for installing the prerequisite software packages and SPRITE on the different operating systems, e.g., Windows, macOS and Linux Ubuntu LTS releases, are provided. Click the link(s) below to learn about the installation process based on your operating systems.
