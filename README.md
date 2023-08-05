@@ -15,9 +15,8 @@
 Detailed instructions for installing the prerequisite software packages and SPRITE on the different operating systems, e.g., Windows, macOS and Linux Ubuntu LTS releases, are provided. Click the link(s) below to learn about the installation process based on your operating systems.
 
 * [Windows](instruction_Windows/)
-* [macOS](instruction_macOS/)
 * [Linux Ubuntu](instruction_Linux_Ubuntu/)
-
+* [macOS](instruction_macOS/)
 
 # Data description
 The source experimental data was obtained from two mechanical size reduction mills: a Wiley knife mill at the bench scale and a JRS knife mill at the pilot scale. The data contains the cumulative output particle size distributions (PSDs) under different conditions of processing parameters. Find the description [here](PBM/Dataset).
