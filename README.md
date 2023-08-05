@@ -67,13 +67,9 @@ Three models can be used to predict the milled biomass PSD with the given feed b
 
 First prepare the feed biomass particle PSD as the input data and the milled product biomass PSD as the output data. The data should include the sieve sizes and the cumulative PSD, in the form of .csv file below.
 
-Example user-provided input file:
+Example user-provided input file: [/PBM/Dataset/extra_input.csv](/PBM/Dataset/extra_input.csv)
 
-	\SPRITE\PBM\Dataset\extra_input.csv
-
-Example reference output file:
-
-	\SPRITE\PBM\Dataset\extra_output.csv
+Example reference output file: [/PBM/Dataset/extra_output.csv](/PBM/Dataset/extra_output.csv)
 
 
 You can directly put your data into these two *csv* files, under the column name: *'FSieves'* and *'Feedmass'* in the input data file, and *'ExpSieves'* and *'Expmass'* in the output data file.
