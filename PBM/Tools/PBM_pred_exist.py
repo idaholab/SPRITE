@@ -16,7 +16,7 @@ from regression import regres
 from Choose_DatasetNum import dataset
 
 while True:
-        data_num = input("Enter the No. data you want choose (choose between 1~10)\n\
+        data_num = input("Enter the No. data you want choose (choose between 1~16)\n\
 \nPlease enter here: ")
         if data_num == "":
             print('\nNo input detected, using 1st dataset as default.\n')
