@@ -56,6 +56,7 @@ SST = np.sum(np.square(Expmass-Expmass_mean))
 SSR = np.sum(np.square(p_transient_cumulative_point-Expmass))
 #R^2
 R2 = 1-SSR/SST
+print('Coefficient of determination (R^2) = ', R2)
 
 plt.plot(FSieves, Feedmass*100, '.', label="Feed PSD")
 plt.plot(ExpSieves, Expmass*100, 'b^', label="Expirenment")
