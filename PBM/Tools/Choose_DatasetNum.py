@@ -79,22 +79,22 @@ def dataset(num):
     elif num == 13:   
         Hz = 40
         moi = 15
-        Input = pd.read_csv("./Dataset/Data_Wiley/Wiley_40Hz_dry_input.csv")
+        Input = pd.read_csv("./Dataset/Data_Wiley/Wiley_input.csv")
         Output = pd.read_csv("./Dataset/Data_Wiley/Wiley_40Hz_dry_output.csv")
     elif num == 14:
         Hz = 60
         moi = 15
-        Input = pd.read_csv("./Dataset/Data_Wiley/Wiley_60Hz_dry_input.csv")
+        Input = pd.read_csv("./Dataset/Data_Wiley/Wiley_input.csv")
         Output = pd.read_csv("./Dataset/Data_Wiley/Wiley_60Hz_dry_output.csv")
     elif num == 15:
         Hz = 60
         moi = 20
-        Input = pd.read_csv("./Dataset/Data_Wiley/Wiley_60Hz_20%_input.csv")
+        Input = pd.read_csv("./Dataset/Data_Wiley/Wiley_input.csv")
         Output = pd.read_csv("./Dataset/Data_Wiley/Wiley_60Hz_20%_output.csv")
     elif num == 16:
         Hz = 60
         moi = 40
-        Input = pd.read_csv("./Dataset/Data_Wiley/Wiley_60Hz_40%_input.csv")
+        Input = pd.read_csv("./Dataset/Data_Wiley/Wiley_input.csv")
         Output = pd.read_csv("./Dataset/Data_Wiley/Wiley_60Hz_40%_output.csv")
     
         
