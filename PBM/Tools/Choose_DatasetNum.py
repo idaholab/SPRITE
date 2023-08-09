@@ -11,7 +11,7 @@ import numpy as np
 
 def dataset(num):
     num = int(num)
-    valid_num = list(range(0, 15))
+    valid_num = list(range(1, 17))
     if num not in valid_num:
         print("Invalid data. Available data num is within:", valid_num)
         return None
@@ -78,12 +78,12 @@ def dataset(num):
         Output = pd.read_csv("./Dataset/Data_JRS/JRS_60Hz_40%_0.75_output.csv")
     elif num == 13:   
         Hz = 40
-        moi = 'dry'
+        moi = 15
         Input = pd.read_csv("./Dataset/Data_Wiley/Wiley_40Hz_dry_input.csv")
         Output = pd.read_csv("./Dataset/Data_Wiley/Wiley_40Hz_dry_output.csv")
     elif num == 14:
         Hz = 60
-        moi = 'dry'
+        moi = 15
         Input = pd.read_csv("./Dataset/Data_Wiley/Wiley_60Hz_dry_input.csv")
         Output = pd.read_csv("./Dataset/Data_Wiley/Wiley_60Hz_dry_output.csv")
     elif num == 15:
