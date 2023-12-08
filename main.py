@@ -9,6 +9,7 @@ Created on %(date)s
 import os
 
 print('\n\
+\N{COPYRIGHT SIGN} 2023, Battelle Energy Alliance, LLC  ALL RIGHTS RESERVED \n\
 ###################################################################### \n\
               ____    ____    ____    ___   _____   _____              \n\
              / ___|  |  _ \  |  _ \  |_ _| |_   _| | ____|             \n\
@@ -18,7 +19,6 @@ print('\n\
                                                                        \n\
            Smart Preprocessing & Robust Integration Emulator           \n\
                                                                        \n\
-                  \N{COPYRIGHT SIGN} 2023 Idaho National Laboratory    \n\
                                                                        \n\
 ###################################################################### \n\
 \n\
