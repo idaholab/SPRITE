@@ -6,7 +6,7 @@
 	
 	Smart Preprocessing & Robust Integration Emulator
 
-&copy; 2023 Idaho National Laboratory
+&copy; 2023, Battelle Energy Alliance, LLC  ALL RIGHTS RESERVED
 
 **SPRITE (Smart Preprocessing & Robust Integration Emulator)** is an open-source suite of analytical and data-driven models for predicting the performance of renewable carbon feedstock preprocessing units and system integration. The models being developed in this suite include **Population Balance Model (PBM)**, **Enhanced Deep Neural Operator (DNO+)**, and **Physics-Informed DNO+ (PIDNO+)**.
 
