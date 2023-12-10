@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+
+#Copyright 2023, Battelle Energy Alliance, LLC  ALL RIGHTS RESERVED
+
 """
 Created on Wed Jul 26 04:57:24 2023
 

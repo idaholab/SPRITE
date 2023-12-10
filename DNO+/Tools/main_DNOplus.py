@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+#Copyright 2023, Battelle Energy Alliance, LLC  ALL RIGHTS RESERVED
+
 """
 Created on %(date)s
 
