@@ -13,7 +13,7 @@ With the U. S. Department of Energy
 NOTICE:  This computer software was prepared by Battelle Energy
 Alliance, LLC, hereinafter the Contractor, under Contract
 No. AC07-05ID14517 with the United States (U. S.) Department of
-Energy (DOE).  Partial funding for this project was provided by DOE Bioenergy Technologies Office.  
+Energy (DOE).  Partial funding for this project was provided by DOE Bioenergy Technologies Office.
 The Government is granted for itself and others acting on
 its behalf a nonexclusive, paid-up, irrevocable worldwide license in this
 data to reproduce, prepare derivative works, and perform publicly and
@@ -42,7 +42,4 @@ Authors:
 
 Contributor:
 
-	Zhen Li, Clemson
-
-
-
+	Zhen Li, Clemson University
