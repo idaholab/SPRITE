@@ -12,6 +12,12 @@
 
 <img src="figs/fig_SPRITE_banner.png">
 
+# About SPRITE
+
+To achieve the desired material properties of granular biomass such as particle size distribution (PSD), the feed material must undergo a milling process during preprocessing. The PSD of biomass plays a critical role in subsequent biofuel manufacturing. It is imperative to accurately predict the PSD of the biomass in the design of preprocessing systems. The population balance model (PBM), upon empirical calibration and validation, can provide rapid prediction of post-milling PSD of granular biomass. However, the standard PSD does not include moisture content as an input parameter. To overcome these drawbacks, a deep learning model called the enhanced deep neural operator (DNO+) is implemented in the code. This model not only retains the capabilities of the PBM in handling complex mapping functions but also incorporates additional factors influencing the system. By considering various experimental conditions such as feed moisture content and discharge screen size, the trained DNO+ model can effectively predict the PSD after milling. The use of this code that contains these models will assist in guiding the milling parameter selection to achieve the desired biomass PSD. 
+
+
+
 # Installing SPRITE
 
 Detailed instructions for installing the prerequisite software packages and SPRITE on the different operating systems, e.g., Windows, macOS and Linux Ubuntu LTS releases, are provided. Click the link(s) below to learn about the installation process based on your operating systems.
@@ -60,7 +66,7 @@ Run SPRITE.
 Three models can be used to predict the milled biomass PSD with the given feed biomass PSD under certain milling condition.
 
 * PBM: A probabilistic based model, by data fitting and regression to find the input output relationship. It has mode 1 to show the data fitting performance, and has mode 2 for prediction. In prediction mode, you can use the model to predict exist data from the experiment, or make a new data for it to predict.
-* DNO+: A data driven based model, trained by 300 datasets, 100 test datasets. You can try the training process, or use the pre-trained model to make prediction. In prediction mode, you can use the model to predict exist data from the experiment, or make a new data for it to predict. 
+* DNO+: A data driven based model, trained by 300 datasets, 100 test datasets. You can try the training process, or use the pre-trained model to make prediction. In prediction mode, you can use the model to predict exist data from the experiment, or make a new data for it to predict.
 * PIDNO+: A phyisics-informed and data driven based model, trained by 25 datasets, 5 datasets for testing. You can try the training process, or use the pre-trained model to make prediction.
 
 # Test model on new data
@@ -81,8 +87,8 @@ An example procedure is below.
 * Run SPRITE, and select Method 1 (PBM)
 * When it shows: 'Enter the No. data you want choose (choose between 1~10) or enter 0 for your own data.', press 0.
 * Then follow the instruction in the command line prompt.
-	* Enter the milling frequency in Hz: 
-	* Enter the moisture content in %: 
+	* Enter the milling frequency in Hz:
+	* Enter the moisture content in %:
 * Select the optimization method.
 * Finish fitting process and get the results.
 
@@ -91,6 +97,6 @@ An example procedure is below.
 
 * "PermissionError: [Errno 1] Operation not permitted"
 	* Conditions: On Mac OS, try to use the model load with DNO+ or PIDNO+ methods under terminal or other python interface.
-	* Solver: Open Mac system settings -- Privacy & Security -- Full Disk Access. 
+	* Solver: Open Mac system settings -- Privacy & Security -- Full Disk Access.
 		* If your app is in the list: give the disk access to it directly.
 		* If your app is not in the list: click on '+' button below, find your app, then give the disk access.
