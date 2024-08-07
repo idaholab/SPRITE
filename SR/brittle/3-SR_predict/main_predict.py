@@ -86,9 +86,9 @@ for num_test in range(1,2):
                 plt.plot(FSieves, Feedmass*100, '-', label="Feed PSD")
                 plt.plot(ExpSieves, Expmass*100, 'b^', label="Expirenment")
                 plt.plot(p_sieve_model, p_static_cumulative*100, 'r-', label="Model pred")
-                plt.xlabel('Sieve size (mm)')
+                plt.xlabel('Sieve size (um)')
                 plt.ylabel('Cumulative product PSD (%)')
-                #plt.legend()
+                plt.legend()
                 plt.savefig('./Output/predict_result.pdf', format="pdf", bbox_inches="tight")
 
                 system_name = platform.system()
