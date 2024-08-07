@@ -1,0 +1,13 @@
+Complexity,Loss,Equation
+1,0.07238353,"0.5612498"
+4,0.07159708,"sqrt(x2 ^ -0.40386277)"
+5,0.071579665,"sin(sqrt(x2 ^ -0.36195335))"
+6,0.071570925,"sqrt((x2 + 2.110891) ^ -0.3886906)"
+7,0.071525104,"sqrt((x2 / cos(x0)) ^ -0.40460187)"
+8,0.07058454,"cos(cos(inv(tan(x2) + sqrt(x2))))"
+9,0.07039237,"sin(cos(cos(inv(tan(x2) + sqrt(x2)))))"
+10,0.068290174,"sin(sin(sin(cos(sin(x1 / sqrt(tan(x0)))))))"
+11,0.06795753,"sin(sin(cos(cos(square(cos(x1 / sqrt(tan(x0))))))))"
+12,0.06779217,"sin(sin(cos(cos(sin(square(cos(x1 / sqrt(tan(x0)))))))))"
+13,0.06646597,"sin(sin(sin(cos(cos(square(tan(cos(x1 / sqrt(tan(x0))))))))))"
+15,0.06618822,"sin(sin(sin(cos(sin(tan(cos(square(tan(cos(x1 / sqrt(tan(x0))))))))))))"

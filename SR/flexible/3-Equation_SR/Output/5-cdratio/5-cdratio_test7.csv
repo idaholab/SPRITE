@@ -1,0 +1,12 @@
+Complexity,Loss,Equation
+2,0.07238353,"cos(0.9748927)"
+5,0.07205149,"cos(cos(inv(sqrt(x2))))"
+6,0.07157036,"cos(1.0785221 ^ cos(sqrt(x2)))"
+7,0.07000853,"cos(1.0785221 ^ sin(1.1777757 / x0))"
+8,0.069746956,"cos(cos(inv(x2 - inv(square(x0)))))"
+9,0.06871222,"cos(cos(inv(square(inv(tan(x2))) - x2)))"
+10,0.0675362,"cos(cos(inv(inv(square(sin(tan(x2)))) - x2)))"
+11,0.06742848,"cos(cos(inv(square(sin(tan(x2)) * x2) - x2)))"
+12,0.067221664,"cos(cos(inv((square(inv(sin(tan(x2)))) - -1.7813343) - x2)))"
+13,0.06637048,"cos(cos(inv((square(sin(tan(x2)) * x2) / 1.0988876) - x2)))"
+16,0.06633923,"cos(cos(inv((square(sin(sin(tan(sin(tan(x2))))) * x2) / 1.0988876) - x2)))"
