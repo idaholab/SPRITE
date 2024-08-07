@@ -15,12 +15,16 @@ import tensorflow.compat.v1 as tf
 tf.compat.v1.disable_eager_execution()
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.interpolate import interp1d
 import time
 import scipy.io as io
 import math
+import platform
+import subprocess
 import sys
 sys.path.insert(0, './Tools')
-from dataset import DataSet
+
+from dataset_glass import DataSet
 from net import DNN
 import Physics
 
@@ -35,7 +39,7 @@ f_dim = x_num
 #output dimension for Branch and Trunk Net
 G_dim = x_num
 #parameter dimension (screen,moi)
-p_dim = 2
+p_dim = 1
 
 #CNN Net - feed PSD
 layers_c_f = [f_dim] + [200]*3 + [f_dim]
@@ -53,8 +57,8 @@ num_test = 5
 
 data = DataSet(x_num, batch_size)
 
-x_train, f_train, u_train, s_train, s_train_real, m_train = data.minibatch()
-p_train = np.concatenate((s_train,m_train),axis=1)
+x_train, f_train, u_train, s_train, s_train_real = data.minibatch()
+p_train = s_train
 
 x_pos = tf.constant(x_train, dtype=tf.float32) #[x_num, x_dim]
 x = tf.tile(x_pos[None, :, :], [batch_size, 1, 1]) #[batch_size, x_num, x_dim]
@@ -149,104 +153,15 @@ loss_physics_plus = loss_physics_plus1*weight + loss_physics_plus2*(1-weight)
 loss_constraint = tf.reduce_mean(tf.maximum(u_pred_real-1, 0))
 
 var_list = [f_cnn_f, b_cnn_f, W_g_f, b_g_f, W_g_x, b_g_x, f_cnn_p, b_cnn_p, W_p, b_p, W_ex1, b_ex1, W_ex2, b_ex2]
-# In[]
-loss = 0.4*loss_data+0.3*loss_physics+0.3*loss_physics_plus+loss_constraint
-
-train1 = tf.train.GradientDescentOptimizer(learning_rate=1.0e-2).minimize(loss, var_list=var_list)
-train2 = tf.train.AdamOptimizer(learning_rate=1.0e-3).minimize(loss, var_list=var_list)
-train3 = tf.train.GradientDescentOptimizer(learning_rate=1.0e-4).minimize(loss, var_list=var_list)
-
-#save model
-saver = tf.train.Saver([weight for weight in var_list])
 
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())
 
-#---------------------AdamOptimizer---------------------
-n = 0
-nmax = 500
-start_time = time.perf_counter()
-time_step_0 = time.perf_counter()
-while n <= nmax:
-    x_train, f_train, u_train, s_train, s_train_real, m_train = data.minibatch()
-    p_train = np.concatenate((s_train,m_train),axis=1)
-    train_dict = {f_ph: f_train, u_ph: u_train, p_ph: p_train, s_ph_real: s_train_real}
-    loss_, _ = sess.run([loss, train1], feed_dict=train_dict)
+load_model = tf.train.Saver([weight for weight in var_list])
+load_model.restore(sess, '../../SPRITE-Data/largedata/PIDNO+/checkpoint_final_glass/model')
 
-    if n%100 == 0:
-        _, _, f_test, u_test, s_test, s_test_real, m_test = data.testbatch(batch_size)
-        p_test = np.concatenate((s_test,m_test),axis=1)
-        test_dict = {f_ph: f_test, u_ph: u_test, p_ph: p_test, s_ph_real: s_test_real}
-        u_test_pred = sess.run(u_pred, feed_dict=test_dict)
-        u_test_pred = data.decode_u(u_test_pred)
-        err = np.mean(np.linalg.norm(u_test - u_test_pred, 2, axis=1)/np.linalg.norm(u_test, 2, axis=1))
-
-        time_step_1000 = time.perf_counter()
-        T = time_step_1000 - time_step_0
-        print('Step: %d, loss: %.3e, Test L2 error: %.3e, Time: %.3f'%(n, loss_, err, T))
-        time_step_0 = time.perf_counter()
-
-    if n%10000 == 0:
-        filename = './Tools/checkpoint/prior_' + str(n)
-        saver.save(sess, filename)
-    n += 1
-
-#---------------------AdamOptimizer---------------------
-nmax2 = nmax + 1000
-while n <= nmax2:
-    x_train, f_train, u_train, s_train, s_train_real, m_train = data.minibatch()
-    p_train = np.concatenate((s_train,m_train),axis=1)
-    train_dict = {f_ph: f_train, u_ph: u_train, p_ph: p_train, s_ph_real: s_train_real}
-    loss_, _ = sess.run([loss, train2], feed_dict=train_dict)
-
-    if n%100 == 0:
-        _, _, f_test, u_test, s_test, s_test_real, m_test = data.testbatch(batch_size)
-        p_test = np.concatenate((s_test,m_test),axis=1)
-        test_dict = {f_ph: f_test, u_ph: u_test, p_ph: p_test, s_ph_real: s_test_real}
-        u_test_pred = sess.run(u_pred, feed_dict=test_dict)
-        u_test_pred = data.decode_u(u_test_pred)
-        err = np.mean(np.linalg.norm(u_test - u_test_pred, 2, axis=1)/np.linalg.norm(u_test, 2, axis=1))
-
-        time_step_1000 = time.perf_counter()
-        T = time_step_1000 - time_step_0
-        print('Step: %d, loss: %.3e, Test L2 error: %.3e, Time: %.3f'%(n, loss_, err, T))
-        time_step_0 = time.perf_counter()
-
-    if n%10000 == 0:
-        filename = './Tools/checkpoint/prior_' + str(n)
-        saver.save(sess, filename)
-    n += 1
-    
-#---------------------AdamOptimizer---------------------
-nmax3 = nmax2 + 1000
-while n <= nmax3:
-    x_train, f_train, u_train, s_train, s_train_real, m_train = data.minibatch()
-    p_train = np.concatenate((s_train,m_train),axis=1)
-    train_dict = {f_ph: f_train, u_ph: u_train, p_ph: p_train, s_ph_real: s_train_real}
-    loss_, _ = sess.run([loss, train3], feed_dict=train_dict)
-
-    if n%100 == 0:
-        _, _, f_test, u_test, s_test, s_test_real, m_test = data.testbatch(batch_size)
-        p_test = np.concatenate((s_test,m_test),axis=1)
-        test_dict = {f_ph: f_test, u_ph: u_test, p_ph: p_test, s_ph_real: s_test_real}
-        u_test_pred = sess.run(u_pred, feed_dict=test_dict)
-        u_test_pred = data.decode_u(u_test_pred)
-        err = np.mean(np.linalg.norm(u_test - u_test_pred, 2, axis=1)/np.linalg.norm(u_test, 2, axis=1))
-
-        time_step_1000 = time.perf_counter()
-        T = time_step_1000 - time_step_0
-        print('Step: %d, loss: %.3e, Test L2 error: %.3e, Time: %.3f'%(n, loss_, err, T))
-        time_step_0 = time.perf_counter()
-
-    if n%10000 == 0:
-        filename = './Tools/checkpoint/prior_' + str(n)
-        saver.save(sess, filename)
-    n += 1
-
-saver.save(sess, './Tools/checkpoint/model')
-
-test_id, x_test, f_test, u_test, s_test, s_test_real, m_test = data.testbatch(num_test)
-p_test = np.concatenate((s_test,m_test),axis=1)
+test_id, x_test, f_test, u_test, s_test, s_test_real = data.testbatch(num_test)
+p_test = s_test
 test_dict = {f_ph: f_test, u_ph: u_test, p_ph: p_test, s_ph_real: s_test_real}
 u_x_test = model.fnn_T(x_test, W_g_x, b_g_x, Xmin, Xmax) #[num_test, x_num, G_dim]
 u_pred1_test = u_f*u_x_test
@@ -256,17 +171,68 @@ u_pred_test = u_pred1_test-u_pred2_test
 u_pred_test = tf.reduce_sum(u_pred_test, axis=-1)
 u_pred_test_ = sess.run(u_pred_test, feed_dict=test_dict)
 u_pred_test_ = data.decode_u(u_pred_test_)
-
+f_test_real = data.decode_f(f_test)
 s_test_real = data.decode_s(s_test)
-m_test_real = data.decode_m(m_test)
 
 err = np.mean(np.linalg.norm(u_test - u_pred_test_, 2, axis=1)/np.linalg.norm(u_test, 2, axis=1))
-print('L2 error: %.3e'%err)
-save_dict = {'test_id': test_id, 'x_test': x_test, 'f_test': f_test, 's_test': s_test_real, 'm_test': m_test_real, 'u_test': u_test, 'u_pred': u_pred_test_, 'l2': err}
-io.savemat('./Output/Preds_TF_data0.01k.mat', save_dict)
+#print('L2 error: %.3e'%err)
+save_dict = {'test_id': test_id, 'x_test': x_test, 'f_test': f_test_real, 's_test': s_test_real, 'u_test': u_test, 'u_pred': u_pred_test_, 'l2': err}
+io.savemat('./Output/Preds_TF_load_data0.04k.mat', save_dict)
 
-end_time = time.perf_counter()
-print('Elapsed time: %.3f seconds'%(end_time - start_time))
-
-# reset variable name number
 tf.reset_default_graph()
+
+while True:
+    data_num = input("4 different milling duration cases are tested.\n\
+You can choose these 4 cases, milling duration equations to \n\
+21 min, 27 min, 30 min, 33 min, respectively, to see the prediction results.\n\
+Enter the number of the test case you want to test (choose between 1~4):\nPlease enter here: ")
+    
+    try:
+        data_num = int(data_num)
+        if 1 <= data_num <= 4:
+            if data_num == 1:
+                data_num = 3-1
+            elif data_num == 2:
+                data_num = 4-1
+            elif data_num == 3:
+                data_num = 2-1
+            elif data_num == 4:
+                data_num = 5-1
+            break
+        else:
+            print("############# Warning ############## \n\
+Input out of range. Please enter an integer between 1 and 4.\n\
+####################################")
+    except ValueError:
+        print("############# Warning ############## \n\
+Invalid input. Please enter an integer.\n\
+####################################")
+
+x_test_plt = np.squeeze(x_test)
+f_test_plt = np.squeeze(f_test_real[data_num,:])
+p_plt = np.squeeze(u_test[data_num,:])
+u_pred_plt = np.squeeze(u_pred_test_[data_num,:])
+duration = np.squeeze(s_test_real[data_num])
+
+cutsize = 250
+fig, ax = plt.subplots()
+ax.plot(x_test_plt, f_test_plt*100, 'k-', label="Feed")
+ax.plot(x_test_plt[0:cutsize], p_plt[0:cutsize]*100, 'b-', label="Ref")
+ax.plot(x_test_plt[0:cutsize], u_pred_plt[0:cutsize]*100, 'r--', label="PIDNO+")
+ax.set_xlabel('Sieve size (mm)')
+ax.set_ylabel('Cumulative product PSD (%)')
+ax.set_title("duration = {} min; Model = PIDNO+".format(np.round(duration*60,2)))
+plt.legend(loc='lower right', bbox_to_anchor=(1.0, 0.0))
+plt.ylim([-5,105])
+plt.savefig('./Output/predict_result.pdf', format="pdf", bbox_inches="tight")
+
+system_name = platform.system()
+if system_name == 'Windows':
+    subprocess.run(['start', './Output/predict_result.pdf'], shell=True)
+elif system_name == 'Darwin':
+   subprocess.run(['open', './Output/predict_result.pdf'])
+elif system_name == 'Linux':
+    subprocess.run(['xdg-open', './Output/predict_result.pdf'])
+else:
+    print("The operating system is unknown")
+

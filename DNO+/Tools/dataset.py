@@ -39,7 +39,7 @@ class DataSet:
         num_train = Depth - num_test
         
         # ----------------input---------------------------
-        
+        '''
         df = io.loadmat('./Dataset/JRS_60Hz/input_1.mat')
         FSieves = df.get('FSieves')
         Data_input = np.zeros((Depth,int(np.shape(FSieves)[1])))
@@ -62,6 +62,13 @@ class DataSet:
             if i%1000 == 0:
                 print('Loading data ... {:>5}%.'.format(np.round(i/Depth,decimals=2)*100))
         print('Complete loading.')
+        '''
+        
+        Data_input = np.load('./Dataset/JRS_60Hz/Data_input.npy')
+        Data_output = np.load('./Dataset/JRS_60Hz/Data_output.npy')
+        screen_all = np.load('./Dataset/JRS_60Hz/screen_all.npy')
+        moi_all = np.load('./Dataset/JRS_60Hz/moi_all.npy')
+        FSieves = np.load('./Dataset/JRS_60Hz/FSieves.npy')
         
         inputdata = Data_input
         outputdata = Data_output
