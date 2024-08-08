@@ -39,34 +39,18 @@ The original experimental data of corn stalk size reduction was obtained from tw
 
 ## Windows
 
-Open *Powershell Prompt* from *Anaconda Navigator*. Go to the SPRITE foler by copying and pasting the following text into the command line and click *Enter* key.
+Open *Powershell Prompt* from *Anaconda Navigator*. Go to the SPRITE foler by copying and pasting the following text into the command line and click *Enter* key. Run SPRITE.
 
 	cd c:/Users/username/Downloads/SPRITE
-
-Run SPRITE.
-
 	python main.py
 
-## Linux
 
-Open a Terminal session. Go to the SPRITE folder.
+## Linux and macOS
 
-	cd /home/username/Downloads/SPRITE
+Open a Terminal session. Go to the SPRITE folder. Run SPRITE.
 
-Run SPRITE.
-
+	cd ~/Downloads/SPRITE
 	./RUN
-
-## macOS
-
-Open a Terminal session. Go to the SPRITE folder.
-
-	cd /Users/username/Downloads/SPRITE
-
-Run SPRITE.
-
-	./RUN
-			
 
 Three models can be used to predict the milled biomass PSD with the given feed biomass PSD under certain milling condition.
 
