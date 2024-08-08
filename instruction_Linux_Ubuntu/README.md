@@ -15,7 +15,7 @@ Tested releases:
 Important notes:
 
  * If you are a **code developer** and plan to make changes of the code and push the changes back to the repository on GitHub, we assume you have a GitHub account and you know how to set up SSH keys on your operating system and add your SSH keys to your GitHub account.
- * We have prepared training data that can be directly used for some data-driven models in SPRITE. It is not mandatory to have the existing training data for using the data-driven models in SPRITE. But generating high-quality training data which are large in file size would take a few hours. We encourage users to download our prepared training data  to get familiar with using the data-driven models in SPRITE. The training data are stored in a separate GitHub repository called **SPRITE-Data**.
+ * We have prepared training data that can be directly used for some data-driven models in SPRITE. It is not mandatory to have the existing training data for using the data-driven models in SPRITE. But generating high-quality training data which are large in file size would take a few hours. We encourage users to download our prepared training data  to get familiar with using the data-driven models in SPRITE. The training data are stored in a separate zip file called **SPRITE-Data**.
 
 
 Follow the **Terminal** command line instructions below. We use **username** to denote your user name on your operating system. Replace **username** with your user name.
@@ -33,7 +33,7 @@ Download [Anaconda](https://www.anaconda.com/) to your Downloads folder. The exa
 	./Anaconda3-2023.07-1-Linux-x86_64.sh
 
 
-## Obtain the SPRITE and SPRITE-Data repositories from GitHub
+## Obtain the SPRITE repository from GitHub
 
 Go to a preferred directory, e.g., *Downloads*.
 
@@ -43,17 +43,16 @@ If you are an **end user**, use the https links to download the SPRITE repositor
 
 	git clone https://github.com/yidongxiainl/SPRITE.git
 
-and the SPIRITE-Data repository
-
-	git clone https://github.com/yidongxiainl/SPRITE-Data.git
-
 If you are a **code developer**, use the SSH links to download the SPRITE repository
 
 	git clone git@github.com:yidongxiainl/SPRITE.git
 
-and the SPRITE-Data repository
+## Obtain SPRITE-Data from Box
 
-	git clone git@github.com:yidongxiainl/SPRITE-Data.git
+Download the SPIRITE-Data.zip file from  https://inlbox.box.com/s/2d51ythhga9knwv0euuig215khbel3lg
+
+
+Unzip SPRITE-Data.zip and make sure the SPRITE-Data folder is side by side with the SPRITE folder.
 
 ## Create and activate a custom Conda environment for SPRITE
 
