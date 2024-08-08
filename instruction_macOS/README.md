@@ -1,11 +1,3 @@
-	 ____    ____    ____    ___   _____   _____
-	/ ___|  |  _ \  |  _ \  |_ _| |_   _| | ____|
-	\___ \  | |_) | | |_) |  | |    | |   |  _|
-	 ___) | |  __/  |  _ <   | |    | |   | |___
-	|____/  |_|     |_| \_\ |___|   |_|   |_____|
-	
-	Smart Preprocessing & Robust Integration Emulator
-
 # Setting up SPRITE on macOS
 
 Tested releases:
