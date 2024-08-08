@@ -16,6 +16,11 @@
 
 To achieve the desired material properties of granular biomass such as particle size distribution (PSD), the feed material must undergo a milling process during preprocessing. The PSD of biomass plays a critical role in subsequent biofuel manufacturing. It is imperative to accurately predict the PSD of the biomass in the design of preprocessing systems. The population balance model (PBM), upon empirical calibration and validation, can provide rapid prediction of post-milling PSD of granular biomass. However, the standard PSD does not include moisture content as an input parameter. To overcome these drawbacks, a deep learning model called the enhanced deep neural operator (DNO+) is implemented in the code. This model not only retains the capabilities of the PBM in handling complex mapping functions but also incorporates additional factors influencing the system. By considering various experimental conditions such as feed moisture content and discharge screen size, the trained DNO+ model can effectively predict the PSD after milling. The use of this code that contains these models will assist in guiding the milling parameter selection to achieve the desired biomass PSD. 
 
+# Citing SPRITE
+
+Reference articles with results generated using SPRITE are listed below:
+
+* Lu, M., Xia, Y., Bhattacharjee, T., Klinger, J., & Li, Z. (2024). Predicting biomass comminution: Physical experiment, population balance model, and deep learning. *Powder Technology*, 441, 119830. https://doi.org/10.1016/j.powtec.2024.119830
 
 
 # Installing SPRITE
