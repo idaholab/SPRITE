@@ -51,15 +51,14 @@ If you are a **code developer**, use the SSH links to download the SPRITE reposi
 
 Download the SPIRITE-Data.zip file from  https://inlbox.box.com/s/2d51ythhga9knwv0euuig215khbel3lg
 
-
-Unzip SPRITE-Data.zip and make sure the SPRITE-Data folder is side by side with the SPRITE folder.
+Unzip SPRITE-Data.zip and make sure the SPRITE-Data folder is located alongside the SPRITE folder.
 
 ## Create and activate a custom Conda environment for SPRITE
 
 Go to the SPRITE folder, e.g.,
 
 	cd ~/Downloads/SPRITE
-	
+
 Create a new environment named *sprite*, type
 
 	conda create -n sprite python=3.9

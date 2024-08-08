@@ -34,7 +34,7 @@ Use Homebrew to install git:
 
 Download [Anaconda](https://www.anaconda.com/) for macOS by choosing the installer that matches your hardware, i.e., *Mac (Intel)* or *Mac (M1/M2)*. Double click the downloaded *pkg* file, e.g., *Anaconda3-2023.07-1-MacOSX-arm64.pkg*, to complete the installation.
 
-## Obtain the SPRITE and SPRITE-Data repositories from GitHub
+## Obtain the SPRITE repository from GitHub
 
 Go to a preferred directory, e.g., *Downloads*.
 
@@ -44,17 +44,15 @@ If you are an **end user**, use the https links to download the SPRITE repositor
 
 	git clone https://github.com/yidongxiainl/SPRITE.git
 
-and the SPIRITE-Data repository
-
-	git clone https://github.com/yidongxiainl/SPRITE-Data.git
-
 If you are a **code developer**, use the SSH links to download the SPRITE repository
 
 	git clone git@github.com:yidongxiainl/SPRITE.git
 
-and the SPRITE-Data repository
+## Obtain SPRITE-Data from Box
 
-	git clone git@github.com:yidongxiainl/SPRITE-Data.git
+Download the SPIRITE-Data.zip file from  https://inlbox.box.com/s/2d51ythhga9knwv0euuig215khbel3lg
+
+Unzip SPRITE-Data.zip and make sure the SPRITE-Data folder is located alongside the SPRITE folder.
 
 ## Create and activate a custom Conda environment for SPRITE
 
