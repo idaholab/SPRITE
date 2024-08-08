@@ -22,6 +22,15 @@ Reference articles with results generated using SPRITE are listed below:
 
 * Lu, M., Xia, Y., Bhattacharjee, T., Klinger, J., & Li, Z. (2024). Predicting biomass comminution: Physical experiment, population balance model, and deep learning. *Powder Technology*, 441, 119830. https://doi.org/10.1016/j.powtec.2024.119830
 
+# Revision History
+
+* V2024
+  * Included a symbolic regression (SR) based modeling capability.
+  * Added calibrated models for brittle material with an example of milling of glass.
+  * Moved the dependent large-size training data from GitHub to Box.
+
+* V2023
+  * Initial release.
 
 # Installing SPRITE
 
