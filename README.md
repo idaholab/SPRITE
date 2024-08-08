@@ -4,11 +4,11 @@
 	 ___) | |  __/  |  _ <   | |    | |   | |___
 	|____/  |_|     |_| \_\ |___|   |_|   |_____|
 	
-	Smart Preprocessing & Robust Integration Emulator
+	Smart Processes Integration Testbed Emulator
 
 &copy; 2023, Battelle Energy Alliance, LLC  ALL RIGHTS RESERVED
 
-**SPRITE (Smart Processing & Integration Testbed Emulator)** is an open-source suite of analytical and data-driven models for predicting the performance of renewable carbon feedstock processing units and system integration. The models being developed in this suite include **Population Balance Model (PBM)**, **Enhanced Deep Neural Operator (DNO+)**, and **Physics-Informed DNO+ (PIDNO+)**.
+**SPRITE (Smart Processes Integration Testbed Emulator)** is an open-source suite of analytical and data-driven models for predicting the performance of renewable carbon feedstock processing units and system integration. The models being developed in this suite include **Population Balance Model (PBM)**, **Enhanced Deep Neural Operator (DNO+)**, and **Physics-Informed DNO+ (PIDNO+)**.
 
 <img src="figs/fig_SPRITE_banner.png">
 
