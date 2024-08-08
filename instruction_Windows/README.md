@@ -29,7 +29,7 @@ Download and install [Git for Windows](https://gitforwindows.org/).
 
 Download and install [Anaconda](https://www.anaconda.com/).
 
-## Obtain the SPRITE and SPRITE-Data repositories from GitHub
+## Obtain the SPRITE repository from GitHub
 
 Find and click open the *Git Bash* app from the *Search* bar.
 
@@ -43,19 +43,17 @@ If you are an **end user**, copy and paste the following text into the Git Bash 
 
 	git clone https://github.com/yidongxiainl/SPRITE.git
 
-and copy and paste the following text into the Git Bash command line and click *Enter* key to download the SPIRITE-Data repository.
-
-	git clone https://github.com/yidongxiainl/SPRITE-Data.git
-
 If you are a **code developer**, copy and paste the following text into the Git Bash command line and click *Enter* key to download the SPRITE repository
 
 	git clone git@github.com:yidongxiainl/SPRITE.git
 
-and copy and paste the following text into the Git Bash command line and click *Enter* key to download the SPIRITE-Data repository.
+Notes: If you are an end user, *Git Bash* is only used for downloading the repository. You will not need *Git Bash* for the following steps.
 
-	git clone git@github.com:yidongxiainl/SPRITE-Data.git
+## Obtain SPRITE-Data from Box
 
-Notes: If you are an end user, *Git Bash* is only used for downloading these repositories. You will not need *Git Bash* for the following steps.
+Download the SPIRITE-Data.zip file from  https://inlbox.box.com/s/2d51ythhga9knwv0euuig215khbel3lg
+
+Unzip SPRITE-Data.zip and make sure the SPRITE-Data folder is located alongside the SPRITE folder.
 
 ## Create and activate a custom Conda environment for SPRITE
 
