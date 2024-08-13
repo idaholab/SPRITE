@@ -32,11 +32,11 @@ A terminal-like window will show up.
 
 If you are an **end user**, copy and paste the following text into the Git Bash command line and click *Enter* key to download the SPRITE repository
 
-	git clone https://github.com/yidongxiainl/SPRITE.git
+	git clone https://github.com/idaholab/SPRITE.git
 
 If you are a **code developer**, copy and paste the following text into the Git Bash command line and click *Enter* key to download the SPRITE repository
 
-	git clone git@github.com:yidongxiainl/SPRITE.git
+	git clone git@github.com:idaholab/SPRITE.git
 
 Notes: If you are an end user, *Git Bash* is only used for downloading the repository. You will not need *Git Bash* for the following steps.
 
