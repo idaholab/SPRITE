@@ -33,11 +33,11 @@ Go to a preferred directory, e.g., *Downloads*.
 
 If you are an **end user**, use the https links to download the SPRITE repository
 
-	git clone https://github.com/yidongxiainl/SPRITE.git
+	git clone https://github.com/idaholab/SPRITE.git
 
 If you are a **code developer**, use the SSH links to download the SPRITE repository
 
-	git clone git@github.com:yidongxiainl/SPRITE.git
+	git clone git@github.com:idaholab/SPRITE.git
 
 ## Obtain SPRITE-Data from Box
 
